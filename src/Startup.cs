@@ -5,6 +5,8 @@ namespace registry
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Ocelot.DependencyInjection;
+    using Ocelot.Middleware;
 
     public class Startup
     {
@@ -15,7 +17,10 @@ namespace registry
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllers();
+            services.AddOcelot(Configuration);
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -26,6 +31,7 @@ namespace registry
             app.UseAuthorization();
             app.UseEndpoints(endpoints => 
                 endpoints.MapControllers());
+            app.UseOcelot().Wait();
         }
     }
 }
