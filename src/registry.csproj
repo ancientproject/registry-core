@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>1.1.66</Version>
+    <Version>1.1.80</Version>
   </PropertyGroup>
   <PropertyGroup Condition="$(Configuration) == 'Debug'">
     <BumpPatch>true</BumpPatch>
@@ -15,5 +15,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="morelinq" Version="3.3.2" />
+    <PackageReference Include="Ocelot" Version="15.0.6" />
   </ItemGroup>
 </Project>
