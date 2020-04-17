@@ -5,6 +5,7 @@ namespace registry
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Middlewares;
     using Ocelot.DependencyInjection;
     using Ocelot.Middleware;
 
@@ -25,6 +26,7 @@ namespace registry
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<BotRequestShield>();
             if (env.IsDevelopment()) 
                 app.UseDeveloperExceptionPage();
             app.UseRouting();
