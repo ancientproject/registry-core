@@ -21,7 +21,6 @@ namespace registry
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllers();
             services.AddOcelot(Configuration);
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
